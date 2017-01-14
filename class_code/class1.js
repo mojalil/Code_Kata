@@ -1,3 +1,12 @@
+// Variables represent a value
+
+var message = 'hello world';
+
+console.log(message);
+
+// strings are text, numbers numbers (mathematics , add , subtract)
+
+
 // var name = 'Mo';
 // var age = 31;
 //
