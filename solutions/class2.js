@@ -44,26 +44,45 @@
 // }
 
 // A3. Alternative
+// var bucketList = {
+//   list : ['ride the trans siberian railway', 'get to 10% body fat', 'be awesome'],
+//   printList : function() {
+//     return this.list;
+//   },
+
+//   add : function(newItem){
+//     var doesNotExist = true;
+//     this.list.forEach(function(item){
+//       // check item doesnt already exist
+//       if(item === newItem){
+//         doesNotExist = false;
+//       }
+//     });
+
+//     if(doesNotExist){
+//       this.list.push(newItem);
+//     }
+
+//     return this.list;
+//   },
+
+//   remove: function(newItem){
+//     this.list = this.list.filter((item) => {
+//       return item != newItem;
+//     });
+//   }
+// }
+
+// A3. Alternative 2
+
 var bucketList = {
   list : ['ride the trans siberian railway', 'get to 10% body fat', 'be awesome'],
   printList : function() {
     return this.list;
   },
 
-  add : function(newItem){
-    var doesNotExist = true;
-    this.list.forEach(function(item){
-      // check item doesnt already exist
-      if(item === newItem){
-        doesNotExist = false;
-      }
-    });
-
-    if(doesNotExist){
-      this.list.push(newItem);
-    }
-
-    return this.list;
+  add : function(newItem){    
+    this.list.includes(newItem) ? '' : this.list.push(newItem);
   },
 
   remove: function(newItem){
@@ -73,10 +92,12 @@ var bucketList = {
   }
 }
 
+
 // console.log(bucketList.list);
 console.log(bucketList.printList());
+bucketList.add('trying new item');
 // bucketList.add('be awesomeeeeeeee');
-bucketList.remove('be awesome');
+// bucketList.remove('be awesome');
 
 console.log(bucketList.printList());
 
