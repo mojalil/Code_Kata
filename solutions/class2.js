@@ -15,28 +15,68 @@
 // The function should return a variable that is in Fahrenheit. The formula for conversion is F = C * (9/5) + 32
 
 // A2.
-function celsiusToFahrenheit(C){
-  var F = C * (9/5) + 32;
-  return (`${F} F`);
-};
+// function celsiusToFahrenheit(C){
+//   var F = C * (9/5) + 32;
+//   return (`${F}F`);
+// };
 
-console.log(celsiusToFahrenheit(10));
+// console.log(celsiusToFahrenheit(10));
+
 // Q3. Create a bucketlist object. Things you want to do before DYING. With 3 functions (list, add and remove). List should list all items. Add should add items and remove should remove items from the list.
 // A3. In progress
 // var bucketList = {
-//   list : ['learn to code'],
+//   list : ['ride the trans siberian railway', 'get to 10% body fat', 'be awesome'],
 //   printList : function() {
 //     return this.list;
 //   },
 //   add : function(item){
 //     return this.list.push(item);
 //   },
-//   remove: function(){
-//     return this.list.pop(item);
+//   remove: function(item){
+//     for(i = 0 ; i < this.list.length; i++){
+//       console.log(this.list[i]);
+//       if(this.list[i] === item){
+//         this.list.splice(i, 1);
+//       }
+//     }
+//     return this.list;
 //   }
 // }
 
-// // console.log(bucketList.list);
-// console.log(bucketList.printList());
-// console.log(bucketList.add('be awesome'));
-// console.log(bucketList.printList());
+// A3. Alternative
+var bucketList = {
+  list : ['ride the trans siberian railway', 'get to 10% body fat', 'be awesome'],
+  printList : function() {
+    return this.list;
+  },
+
+  add : function(newItem){
+    var doesNotExist = true;
+    this.list.forEach(function(item){
+      // check item doesnt already exist
+      if(item === newItem){
+        doesNotExist = false;
+      }
+    });
+
+    if(doesNotExist){
+      this.list.push(newItem);
+    }
+
+    return this.list;
+  },
+
+  remove: function(newItem){
+    this.list = this.list.filter((item) => {
+      return item != newItem;
+    });
+  }
+}
+
+// console.log(bucketList.list);
+console.log(bucketList.printList());
+// bucketList.add('be awesomeeeeeeee');
+bucketList.remove('be awesome');
+
+console.log(bucketList.printList());
+
