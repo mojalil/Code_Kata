@@ -32,7 +32,7 @@ var getAll = () => {
   return fetchNotes();
 };
 
-var getNote = (title) => {
+var GetNoteNOw = (title) => {
   var notes = fetchNotes();
   var filteredNotes = notes.filter((note) => note.title === title);
   return filteredNotes[0];
